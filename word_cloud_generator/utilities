@@ -1,0 +1,16 @@
+import re
+from nltk.corpus import stopwords
+
+def clean_text(line: str) -> str:
+    """
+    Removes leading and trailing spaces, transforms to lower case, removes punctuation, and removes stopwords
+    """
+    punctuations = r"""'"\,<>./?@#$%^&*_~/!()-[]{};:"""
+    stop_words = set(stopwords.words("english"))
+
+    line = line.lower()
+    line = re.sub(r"<.*?>", " ", line)
+    line = re.sub(f"[{re.escape(punctuations)}]", " ", line)
+    line = re.sub(r"\d+", " ", line)
+    words = [word for word in line.split() if word not in stop_words]
+    return ' '.join(words)

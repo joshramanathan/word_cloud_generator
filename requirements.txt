@@ -1,0 +1,8 @@
+pandas
+nemo-curator
+justext
+resiliparse
+trafilatura
+pycld2
+warcio
+beautifulsoup4
